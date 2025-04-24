@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Carbon\Carbon;
 
-class CartController extends Controller
+class SuperController extends Controller
 {
     public function viewSales(){
         $sales = Sales::all();
