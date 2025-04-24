@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('dedt_items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('debt_id')->constrained()->onDelete('cascade');
+            $table->string('product_name');
+            $table->string('description')->nullable();
+            $table->decimal('active_price', 10, 2)->nullable();
+            $table->decimal('price', 10, 2);
+             $table->integer('quantity');
             $table->timestamps();
         });
     }

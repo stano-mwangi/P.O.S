@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->integer('cart_id')->nullable();
+            $table->string('product_name');
+            $table->text('description')->nullable();
+            $table->decimal('price', 10, 2);
+            $table->decimal('active_price', 10, 2)->nullable();
+            $table->decimal('price_per_item')->nullable();
+            $table->decimal('discount_price', 10, 2)->nullable();
+            $table->integer('quantity');
+            $table->decimal('total');
             $table->timestamps();
         });
     }

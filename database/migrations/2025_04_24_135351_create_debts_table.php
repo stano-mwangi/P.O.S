@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('dedts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
+            $table->decimal('amount', 10, 2);
+            $table->boolean('status')->default(0); // 0 = not paid, 1 = paid
             $table->timestamps();
         });
     }
