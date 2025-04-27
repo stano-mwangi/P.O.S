@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Debt extends Model
+class Debt extends BaseModel
 {
     use HasFactory;
    
 
     protected $fillable = [
-        'customer_id', 'amount', 'status'
+        'customer_id', 'amount', 'status','business_id'
     ];
     public function items()
     {

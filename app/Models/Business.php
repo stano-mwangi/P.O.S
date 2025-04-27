@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sales extends BaseModel
+class Business extends BaseModel
 {
-    protected $fillable = ['business_id'];
+    protected $fillable = [
+'name'
+    ];
 }

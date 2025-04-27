@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('discount_price', 10, 2)->nullable();
             $table->integer('quantity');
             $table->decimal('active_price', 10, 2)->nullable();
+            $table->foreignId('business_id')->after('id')->constrained('businesses')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier extends Model
+class Supplier extends MBaseodel
 {
     use HasFactory;
     protected $fillable = [
@@ -15,7 +15,8 @@ class Supplier extends Model
 'amount',
 'balance',
 'status',
-'location'
+'location',
+'business_id'
 
     ];
 

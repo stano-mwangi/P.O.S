@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dedts', function (Blueprint $table) {
+        Schema::create('debts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->decimal('amount', 10, 2);
             $table->boolean('status')->default(0); // 0 = not paid, 1 = paid
+            $table->foreignId('business_id')->after('id')->constrained('businesses')->onDelete('cascade');
             $table->timestamps();
         });
     }

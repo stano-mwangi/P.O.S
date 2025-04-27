@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->boolean('in_stock')->default(true);
             $table->string('category');
+            $table->foreignId('business_id')->after('id')->constrained('businesses')->onDelete('cascade');
             $table->timestamps();
         });
     }

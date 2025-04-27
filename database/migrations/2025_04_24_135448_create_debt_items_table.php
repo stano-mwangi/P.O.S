@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dedt_items', function (Blueprint $table) {
+        Schema::create('debt_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('debt_id')->constrained()->onDelete('cascade');
+            $table->foreignId('business_id')->after('id')->constrained('businesses')->onDelete('cascade');
             $table->string('product_name');
             $table->string('description')->nullable();
             $table->decimal('active_price', 10, 2)->nullable();

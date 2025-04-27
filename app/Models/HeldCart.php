@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HeldCart extends Model
+class HeldCart extends BaseModel
 {
     use HasFactory;
     protected $fillable = [
@@ -16,7 +16,8 @@ class HeldCart extends Model
 'price',
 'discount_price',
 'quantity',
-'active_price'
+'active_price',
+'business_id'
 
     ];
 }

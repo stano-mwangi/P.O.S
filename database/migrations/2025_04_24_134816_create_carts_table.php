@@ -17,6 +17,7 @@ return new class extends Migration
             // Other necessary columns like user_id, total_price, etc.
             $table->string('session_id')->nullable();
             $table->boolean('checked_out')->default(false);
+            $table->foreignId('business_id')->after('id')->constrained('businesses')->onDelete('cascade');
             $table->timestamps();
         });
     }
