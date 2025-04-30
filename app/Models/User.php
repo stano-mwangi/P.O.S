@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use app\Models\Role;
+use App\Models\Role;
+use App\Models\Business;
 
 class User extends BaseModel
 {
@@ -23,8 +24,9 @@ class User extends BaseModel
         'name',
         'email',
         'password',
-        'role'
+        'role_id'
     ];
+    protected $with = ['role'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -59,4 +61,15 @@ public function isAdmin()
 {
     return $this->role?->name === 'admin';
 }
+
+public function business(){
+    return $this->belongsTo(Business::class);
+}
+
+// In User.php
+public function getRoleNameAttribute()
+{
+    return $this->role?->name ?? 'unknown';
+}
+
 }

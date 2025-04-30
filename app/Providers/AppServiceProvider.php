@@ -23,5 +23,9 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') !== 'local') {
             \URL::forceScheme('https');
         }
+        \DB::listen(function($query) {
+            logger($query->sql);
+        });
+        
     }
 }

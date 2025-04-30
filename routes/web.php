@@ -58,12 +58,12 @@ Route::middleware('auth')->group(function () {
    
 
     Route::get('/home', [SuperController::class, 'home']);
-    Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/homeAdmin', [AdminController::class, 'homeAdmin']);
     });
     
-    Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(function () {
-        Route::get('/', [SuperController::class, 'homeUser']);
+    Route::middleware(['auth', 'role:user'])->group(function () {
+        Route::get('/homeUser', [UserController::class, 'homeUser']);
     });
     
     // Category Routes

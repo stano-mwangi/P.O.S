@@ -33,6 +33,7 @@ class SuperController extends Controller
     
 
 public function show(){
+
     
 }
     public function deleteSale($id){
